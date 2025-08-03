@@ -21,7 +21,7 @@ It uses:
 ---
 
 ## 📁 Project Structure
-
+```bash
 FAQS/
 ├── cpp/
 │ ├── binding.cpp # Pybind11 bindings
@@ -48,7 +48,7 @@ FAQS/
 ├── .gitignore
 └── README.md
 
-
+```
 ---
 
 ## 🛠️ Setup Instructions
