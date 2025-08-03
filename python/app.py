@@ -47,4 +47,4 @@ def index():
     return render_template("index.html",q=query, result=result, tags=tags)
 
 if __name__ == "__main__":
-    app.run(use_reloader=True, debug=False)
+    app.run(use_reloader=False, debug=False)
