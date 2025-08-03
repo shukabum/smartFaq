@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart FAQ Assistant</title>
+    <style>
+      :root {
+        --bg-color: #f4f6f8;
+        --card-bg: white;
+        --text-color: #333;
+        --button-bg: #2d6cdf;
+        --tag-bg: #2d6cdf;
+      }
+
+      body.dark {
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+        --text-color: #f0f0f0;
+        --button-bg: #4a90e2;
+        --tag-bg: #607d8b;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        padding: 30px;
+        background: var(--bg-color);
+        color: var(--text-color);
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .container {
+        background: var(--card-bg);
+      }
+
+      button {
+        background: var(--button-bg);
+      }
+
+      .tags li {
+        background: var(--tag-bg);
+      }
+
+      .container {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2d6cdf;
+      }
+
+      form {
+        margin-bottom: 25px;
+      }
+
+      input[type="file"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 8px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: #2d6cdf;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #1f4fb2;
+      }
+      .query,
+      .result,
+      .tags {
+        background: #eef2f7;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .tags ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .tags li {
+        background: #2d6cdf;
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px 5px 0 0;
+        border-radius: 20px;
+        color: white;
+        font-size: 14px;
+      }
+
+      .section {
+        margin-top: 40px;
+      }
+    </style>
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem(
+          "darkmode",
+          document.body.classList.contains("dark")
+        );
+      }
+
+      window.onload = () => {
+        if (localStorage.getItem("darkmode") === "true") {
+          document.body.classList.add("dark");
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧠 Smart FAQ Assistant</h1>
+      <div class="section">
+        <form method="post" enctype="multipart/form-data">
+          <label>📁 Upload <code>FAQS</code> file:</label>
+          <input type="file" name="datafile" accept=".py" required />
+          <button type="submit">Upload FAQs</button>
+        </form>
+      </div>
+
+      <div class="section">
+        <form method="post">
+          <label>❓ Ask a Query:</label>
+          <input
+            type="text"
+            name="query"
+            placeholder="Type your question here..."
+            required
+          />
+          <button type="submit">Submit Query</button>
+        </form>
+      </div>
+      {% if q %}
+      <div class="query">
+        <h3>Query:</h3>
+        <p><strong>{{q}}</strong></p>
+      </div>
+      {% endif %} {% if result %}
+      <div class="result">
+        <h3>✅ Result:</h3>
+        <p><strong>{{ result }}</strong></p>
+      </div>
+      {% endif %} {% if tags %}
+      <div class="tags">
+        <h4>🏷️ Auto-Generated Tags:</h4>
+        <ul>
+          {% for tag in tags %}
+          <li>{{ tag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
