@@ -9,6 +9,10 @@ It uses:
 - 🧠 Future-ready for sentence embeddings / LLM integration
 
 ---
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/76a401ef-a082-4c38-b459-b456f56364a2" />
+
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/a1a55a3a-cb8b-4c6a-8f33-54defe4f027c" />
+
 
 ## 🚀 Features
 
