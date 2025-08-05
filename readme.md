@@ -88,7 +88,7 @@ binding.cpp preprocessor.cpp tf_idf.cpp similarity.cpp tagger.cpp \
 cd ../python
 python test_faq.py
 ```
-##4. 🌐 Launch the Flask App
+## 4. 🌐 Launch the Flask App
 ```bash
 Copy
 Edit
